@@ -74,7 +74,7 @@ const kittenThree = `<li class="card">
 
 const input_search_desc = document.querySelector('.js_in_search_desc');
 
-input_search_desc.value = 'tranquilo';
+// input_search_desc.value = 'tranquilo';
 
 const descrSearchText = input_search_desc.value;
 
@@ -93,10 +93,58 @@ if(kitten3description.includes(descrSearchText)) {
 
 ///
 
-
-
 if (newForm.classList.contains('collapsed')) {
   newForm.classList.remove('collapsed');
 } else {
   newForm.classList.add('collapsed');
 }
+
+/// 
+
+const item = document.querySelector('.js-item');
+
+item.addEventListener('click', (event) => {
+  // console.log('Funciona?')
+  newForm.classList.toggle('collapsed');
+})
+
+///
+
+const btnAdd = document.querySelector(".js-btn-add");
+const inputDesc = document.querySelector('.js-input-desc');
+const inputPhoto = document.querySelector('.js-input-photo');
+const inputName = document.querySelector('.js-input-name');
+const labelMesageError = document.querySelector('.js-label-error');
+
+
+btnAdd.addEventListener('click', () => {
+  const valueDesc = inputDesc.value;
+  const valuePhoto = inputPhoto.value;
+  const valueName = inputName.value;
+
+  if (valueDesc === '' || valuePhoto === '' || valueName === '') {
+    labelMesageError.innerHTML = 'Debe rellenar todos los valores';
+  } else {
+    labelMesageError.innerHTML = '¡Qué bien!'; //no sabemos qué poner lol
+  }
+});
+
+///
+
+const btnSrch = document.querySelector('.js-btn-srch');
+// const input_search_desc
+const input_search_race = document.querySelector('.js_in_search_race');
+const labelMesageErrorSrch = document.querySelector('.js-label-error-srch');
+
+
+btnSrch.addEventListener('click', () => {
+  const valueSDesc = input_search_desc.value;
+  const valueSRace = input_search_race.value;
+
+  if (valueSDesc === '' || valueSRace === '' ) {
+    labelMesageErrorSrch.innerHTML = '¡Error!';
+  } else {
+    labelMesageErrorSrch.innerHTML = '¡Genial!'; //no sabemos qué poner lol
+  }
+});
+
